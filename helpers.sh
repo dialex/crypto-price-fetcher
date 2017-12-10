@@ -15,6 +15,13 @@ function get_price {
 }
 
 function extract_price {
+  if [[ $# -ne 1 ]]
+  then
+    echo "${FUNCNAME[0]} requires 1 parameter: [JSON]"
+    return 1
+  fi
+
   local param_json=$1
-  
+
+  jq '.[0].price_eur'
 }
