@@ -1,0 +1,34 @@
+{
+  "targets": [
+    {
+      "url": "https://coinmarketcap.com/all/views/all/#EUR",
+      "selectors": [
+        "#id-iota td:nth-child(5) a",
+        "#id-ripple td:nth-child(5) a",
+        "#id-lisk td:nth-child(5) a",
+        "#id-golem-network-tokens td:nth-child(5) a",
+        "#id-monero td:nth-child(5) a",
+        "#id-bitshares td:nth-child(5) a",
+        "#id-dash td:nth-child(5) a",
+        "#id-digibyte td:nth-child(5) a",
+        "#id-ethereum td:nth-child(5) a",
+        "#id-bitcoin-cash td:nth-child(5) a",
+        "#id-bitcoin td:nth-child(5) a",
+        "#id-litecoin td:nth-child(5) a",
+        "#id-siacoin td:nth-child(5) a",
+        "#id-funfair td:nth-child(5) a",
+        "#id-ubiq td:nth-child(5) a",
+        "#id-nem td:nth-child(5) a",
+        "#id-neo td:nth-child(5) a",
+        "#id-gas td:nth-child(5) a",
+        "#id-aragon td:nth-child(5) a",
+        "#id-stratis td:nth-child(5) a",
+        "#id-gamecredits td:nth-child(5) a",
+        "#id-ardor td:nth-child(5) a",
+        "#id-iconomi td:nth-child(5) a",
+        "#id-firstblood td:nth-child(5) a",
+        "#id-library-credit td:nth-child(5) a"
+      ]
+    }
+  ]
+}
