@@ -4,7 +4,7 @@ require_relative 'helpers.rb'
 task :default => [:run]
 
 desc "Do it!"
-task :run => [:run_impl] do end
+task :run => [:fetch_prices] do end
 
 desc "Installs dependencies required to run the app"
 task :install => [:install_user] do end
@@ -22,8 +22,18 @@ task :install_dev do
   sh('./bigbang.sh')
 end
 
-task :run_impl do
-  log_step 'Doing stuff...'
-  price = extract_price(get_data('bitcoin'))
-  log 'done, price is ' + price.to_s
+task :fetch_prices do
+  config_filepath = 'config.txt'
+  output_filepath = 'prices.txt'
+
+  log_step 'Fetching prices...'
+  File.readlines(config_filepath).each do |line|
+    price = extract_price(get_data(line.strip))
+
+    f = File.open(output_filepath, 'a')
+    f.puts(price)
+    f.close
+  end
+
+  ok 'Prices available at ' + output_filepath
 end

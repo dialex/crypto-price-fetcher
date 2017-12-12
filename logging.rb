@@ -3,7 +3,6 @@ def log (msg)
 end
 
 def log_step (msg)
-  puts ""
   puts ">>> #{msg}".blue
 end
 

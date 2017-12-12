@@ -7,9 +7,16 @@ def get_data (coin_ticker)
 
   url = "https://api.coinmarketcap.com/v1/ticker/#{coin_ticker}/?convert=EUR"
   response = RestClient.get(url)
-  JSON.parse(response)
+  return JSON.parse(response)
 end
 
 def extract_price (json)
-  json[0]['price_eur'].to_s
+  price = json[0]['price_eur'].to_s
+  log " #{price.to_s} EUR"
+  return price
+end
+
+def read_config (filepath)
+  file = File.read(filepath)
+  data = JSON.parse(file)
 end
