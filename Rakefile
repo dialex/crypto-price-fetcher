@@ -48,6 +48,13 @@ end
 
 task :fetch_prices do
   log_step 'Fetching prices...'
+
+  if !File.file?(config_filepath) then
+    err "Could not locate the file `#{config_filepath}`."
+    warn 'Create the configuration file and write one coin ticker symbol per line. To list the supported coin tickers do `rake list`.'
+    exit
+  end
+
   File.readlines(config_filepath).each do |line|
     price = extract_price(get_data(line.strip))
 
