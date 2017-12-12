@@ -1,10 +1,22 @@
+# ==================== Imports ====================
+
 require_relative 'logging.rb'
 require_relative 'helpers.rb'
 
-task :default => [:run]
+# ==================== Constants ====================
+
+config_filepath = 'config.txt'
+output_filepath = 'prices.txt'
+
+# ==================== Tasks ====================
+
+task :default => [:clean, :run]
 
 desc "Do it!"
 task :run => [:fetch_prices] do end
+
+desc "Cleans generated files"
+task :clean => [:clean_install, :clean_run] do end
 
 desc "Installs dependencies required to run the app"
 task :install => [:install_user] do end
@@ -14,17 +26,25 @@ task :dev => [:install_dev] do end
 
 # ==================== Implementation ====================
 
+task :clean_install do
+  log_step 'Cleaning previous installation...'
+end
+
+task :clean_run do
+  log_step 'Cleaning previous execution...'
+  sh("rm -rf #{output_filepath}")
+end
+
 task :install_user do
   bundle install
 end
 
 task :install_dev do
-  sh('./bigbang.sh')
+  warn 'You need to run the \'dev-tools.sh\' script.'
 end
 
 task :fetch_prices do
-  config_filepath = 'config.txt'
-  output_filepath = 'prices.txt'
+
 
   log_step 'Fetching prices...'
   File.readlines(config_filepath).each do |line|
