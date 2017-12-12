@@ -29,6 +29,10 @@ task :help do
   sh('rake -T', verbose: false)
 end
 
+#TODO
+#task :list => [:list_symbols] do end
+#https://api.coinmarketcap.com/v1/ticker/?limit=0
+
 # ==================== Implementation ====================
 
 task :clean_install do
