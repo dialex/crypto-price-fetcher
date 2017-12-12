@@ -22,8 +22,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  json (~> 2.1)
-  rest-client
+  json (~> 2.1.0)
+  rest-client (~> 2.0.2)
 
 RUBY VERSION
    ruby 2.4.1p111
