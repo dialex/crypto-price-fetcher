@@ -10,7 +10,7 @@ output_filepath = 'prices.txt'
 
 # ==================== Tasks ====================
 
-task :default => [:clean, :run]
+task :default => [:clean, :install, :run]
 
 desc "Do it!"
 task :run => [:fetch_prices] do end
@@ -28,6 +28,7 @@ task :dev => [:install_dev] do end
 
 task :clean_install do
   log_step 'Cleaning previous installation...'
+  sh('gem cleanup')
 end
 
 task :clean_run do
@@ -36,7 +37,9 @@ task :clean_run do
 end
 
 task :install_user do
-  bundle install
+  log_step 'Installing dependencies...'
+  sh('bundle install')
+  ok 'Installed'
 end
 
 task :install_dev do
@@ -44,8 +47,6 @@ task :install_dev do
 end
 
 task :fetch_prices do
-
-
   log_step 'Fetching prices...'
   File.readlines(config_filepath).each do |line|
     price = extract_price(get_data(line.strip))
