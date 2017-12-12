@@ -9,12 +9,19 @@ task :example => [:example_impl] do end
 desc "Install dependencies required to run the app"
 task :install => [:install_dependencies] do end
 
+desc "Install tools required to develop the app"
+task :dev => [:install_dev_tools] do end
+
 
 
 # ==================== Implementation ====================
 
 task :install_dependencies do
   bundle install
+end
+
+task :install_dev_tools do
+  sh('./bigbang.sh')
 end
 
 task :example_impl do
