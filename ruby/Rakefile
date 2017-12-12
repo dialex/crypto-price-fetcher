@@ -1,57 +1,23 @@
+require_relative 'logging.rb'
+require_relative 'helpers.rb'
+
 task :default => [:example]
 
 desc "Just an example"
 task :example => [:example_impl] do end
 
+desc "Just an example"
+task :install => [:install_dependencies] do end
+
+
 # ==================== Implementation ====================
 
 task :example_impl do
   log_step 'Doing stuff...'
+  get_price 'bitcoin'
   log 'done'
 end
 
-# ======================= Helpers =======================
-
-def log (msg)
-  puts "#{msg}"
-end
-
-def log_step (msg)
-  puts ""
-  puts ">>> #{msg}".blue
-end
-
-def warn (msg)
-  puts "[!] WARNING: #{msg}".yellow
-end
-
-def err (msg)
-  puts "[X] ERROR: #{msg}".red
-end
-
-def ok (msg)
-  puts "✔ #{msg}".green
-end
-
-# extends String to have colour codes
-class String
-  def colorize(color_code)
-    "\e[#{color_code}m#{self}\e[0m"
-  end
-
-  def red
-    colorize(31)
-  end
-
-  def green
-    colorize(32)
-  end
-
-  def yellow
-    colorize(33)
-  end
-
-  def blue
-    colorize(36)
-  end
+task :install_dependencies do
+  bundle install
 end
