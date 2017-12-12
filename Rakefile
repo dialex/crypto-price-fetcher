@@ -12,7 +12,7 @@ output_filepath = 'prices.txt'
 
 task :default => [:clean, :install, :run]
 
-desc "Do it!"
+desc "Fetches the prices of your favorite crypto currencies"
 task :run => [:fetch_prices] do end
 
 desc "Cleans generated files"
@@ -23,6 +23,11 @@ task :install => [:install_user] do end
 
 desc "Installs tools required to develop the app"
 task :dev => [:install_dev] do end
+
+desc "Tells you how you can use this app"
+task :help do
+  sh('rake -T', verbose: false)
+end
 
 # ==================== Implementation ====================
 
