@@ -1,0 +1,4 @@
+bitcoin
+bitcoin-cash
+ethereum
+iota
