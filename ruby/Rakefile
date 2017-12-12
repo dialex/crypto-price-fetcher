@@ -6,18 +6,19 @@ task :default => [:example]
 desc "Just an example"
 task :example => [:example_impl] do end
 
-desc "Just an example"
+desc "Install dependencies required to run the app"
 task :install => [:install_dependencies] do end
+
 
 
 # ==================== Implementation ====================
 
-task :example_impl do
-  log_step 'Doing stuff...'
-  get_price 'bitcoin'
-  log 'done'
-end
-
 task :install_dependencies do
   bundle install
+end
+
+task :example_impl do
+  log_step 'Doing stuff...'
+  price = extract_price(get_data('bitcoin'))
+  log 'done, price is ' + price.to_s
 end
