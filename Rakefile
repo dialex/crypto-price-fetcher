@@ -10,10 +10,10 @@ output_filepath = 'prices.txt'
 
 # ==================== Tasks ====================
 
-task :default => [:clean, :install, :run]
+task :default => [:clean, :install, :fetch]
 
 desc "Fetches the prices of your favorite crypto currencies"
-task :run => [:fetch_prices] do end
+task :fetch => [:fetch_prices] do end
 
 desc "Cleans generated files"
 task :clean => [:clean_install, :clean_run] do end
@@ -52,7 +52,7 @@ task :install_user do
 end
 
 task :install_dev do
-  warn 'You need to run the \'dev-tools.sh\' script.'
+  warn 'You need to run the \'run-bigbang.sh\' script.'
 end
 
 task :fetch_prices do
