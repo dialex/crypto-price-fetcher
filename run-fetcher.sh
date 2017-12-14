@@ -1,3 +1,3 @@
 #!/bin/bash
 cd `dirname $0`
-rake clean fetch
+rake clean_run fetch
