@@ -29,9 +29,8 @@ task :help do
   sh('rake -T', verbose: false)
 end
 
-#TODO
-#task :list => [:list_symbols] do end
-#https://api.coinmarketcap.com/v1/ticker/?limit=0
+desc "Tells you which coin tickers/symbols are supported"
+task :list => [:list_symbols] do end
 
 # ==================== Implementation ====================
 
@@ -43,6 +42,17 @@ end
 task :clean_run do
   log_step 'Cleaning previous execution...'
   sh("rm -rf #{output_filepath}")
+end
+
+task :list_symbols do
+  log_step 'Listing supported coin tickers (CSV format)...'
+  output = ""
+  list_tickers.each { |line|
+    output += line + ", "
+  }
+  output.chomp(", ")
+  log output
+  ok 'yup, we support all that ☝️'
 end
 
 task :install_user do
@@ -66,6 +76,7 @@ task :fetch_prices do
 
   File.readlines(config_filepath).each do |line|
     price = extract_price(get_data(line.strip))
+    #TODO print outside the functions above
 
     f = File.open(output_filepath, 'a')
     f.puts(price)
