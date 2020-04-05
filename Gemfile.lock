@@ -4,7 +4,7 @@ GEM
     httparty (0.18.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    json (2.2.0)
+    json (2.3.0)
     jsonpath (1.0.5)
       multi_json
       to_regexp (~> 0.2.1)
@@ -20,7 +20,7 @@ PLATFORMS
 
 DEPENDENCIES
   httparty (~> 0.18.0)
-  json (~> 2.2.0)
+  json (~> 2.3.0)
   jsonpath (~> 1.0.5)
 
 RUBY VERSION
