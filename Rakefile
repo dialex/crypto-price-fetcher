@@ -29,9 +29,6 @@ task :help do
   sh('rake -T', verbose: false)
 end
 
-desc "Tells you which coin tickers/symbols are supported"
-task :list => [:list_symbols] do end
-
 # ==================== Implementation ====================
 
 task :clean_install do
@@ -42,17 +39,6 @@ end
 task :clean_run do
   log_step 'Cleaning previous execution...'
   sh("rm -rf #{output_filepath}")
-end
-
-task :list_symbols do
-  log_step 'Listing supported coin tickers (CSV format)...'
-  output = ""
-  list_tickers.each { |line|
-    output += line + ", "
-  }
-  output.chomp(", ")
-  log output
-  ok 'yup, we support all that ☝️'
 end
 
 task :install_user do
@@ -70,13 +56,12 @@ task :fetch_prices do
 
   if !File.file?(config_filepath) then
     err "Could not locate the file `#{config_filepath}`."
-    warn 'Create the configuration file and write one coin ticker symbol per line. To list the supported coin tickers do `rake list`.'
+    warn 'Create the configuration file and write one coin ticker symbol per line.'
     exit
   end
 
   File.readlines(config_filepath).each do |line|
     price = extract_price(get_data(line.strip))
-    #TODO print outside the functions above
 
     f = File.open(output_filepath, 'a')
     f.puts(price)

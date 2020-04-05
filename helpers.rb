@@ -21,15 +21,3 @@ def read_config (filepath)
   data = JSON.parse(file)
   return data
 end
-
-def list_tickers
-  url = "https://api.coinmarketcap.com/v1/ticker/?limit=0"
-  response = RestClient.get(url)
-  json_response = JSON.parse(response)
-
-  list = []
-  json_response.each { |element|
-    list << element['id'].gsub('"','')
-  }
-  return list.sort
-end
