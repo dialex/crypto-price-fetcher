@@ -6,3 +6,4 @@
   - Execute `run-fetcher.sh` or `rake` to fetch the prices.
 - 🐍 Python version
   - cd `python`
+  - Execute `invoke install` to install everything required to run the app.
