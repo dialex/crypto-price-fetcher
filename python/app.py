@@ -1,8 +1,6 @@
 import helpers.io as io
 import helpers.api as api
 
-print("Hello World")
-
 # Read config
 config_path = "config.txt"
 print("Opening file at " + config_path)
@@ -12,7 +10,10 @@ print("Read " + str(len(coin_tickers)) + " lines")
 # Fetch prices
 prices = []
 for coin in coin_tickers:
+    coin = coin.rstrip()
+    print(f"Fetching data for {coin}")
     coin_price = api.get_price(coin)
+    print(f" {coin_price} EUR")
     prices.append(coin_price)
 
 # Write results
