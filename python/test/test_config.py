@@ -1,12 +1,12 @@
 import unittest
-from helpers.config import *
+import helpers.config as config
 
 
 class TestHelpers(unittest.TestCase):
 
-    def test_read_config_file_should_output_lines(self):
+    def test_read_file_should_output_lines(self):
         config_filepath = "config.txt"
-        output = read_config_file(config_filepath)
+        output = config.read_file(config_filepath)
         self.assertGreater(len(output), 0)
 
 

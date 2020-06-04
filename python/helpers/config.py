@@ -1,4 +1,4 @@
-def read_config_file(filepath):
+def read_file(filepath):
     """Reads a config file and returns a list of coins"""
     print("Opening config file at " + filepath)
     config_file = open(filepath, 'r')
