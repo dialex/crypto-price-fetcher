@@ -1,3 +1,9 @@
+### Generated files ###
+
+test/output/
+config.txt
+prices.txt
+
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
@@ -126,8 +132,3 @@ dmypy.json
 .pyre/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
-
-### Generated files ###
-
-config.txt
-prices.txt
