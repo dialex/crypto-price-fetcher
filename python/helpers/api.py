@@ -15,12 +15,15 @@ def ping():
 
 
 def get_data(coin_ticker):
-    """Returns current price of coin and other metadata"""
+    """Returns metadata of a given coin"""
     endpoint = f"cryptocurrency/quotes/latest?slug={coin_ticker}&convert=EUR"
     response = requests.get(url + endpoint, headers=auth)
-    return response.json()
+def get_price(coin_ticker):
+    """Returns the current price of a given coin"""
+    return extract_price(get_data(coin_ticker))
 
 
 def extract_price(json):
     """Given a JSON response, extracts the price field"""
-    return int(json["data"]["1"]["quote"]["EUR"]["price"])
+    value = json["data"]["1"]["quote"]["EUR"]["price"]
+    return int(value)
