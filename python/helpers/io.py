@@ -9,3 +9,8 @@ def read_file(filepath):
         lines = config_file.readlines()
         config_file.close()
     return lines
+
+
+def write_list_file(filepath, list):
+    """Write list to file, one element per line"""
+    raise Exception("Not implemented")
