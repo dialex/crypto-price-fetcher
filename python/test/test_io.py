@@ -25,16 +25,18 @@ class TestHelperIO(unittest.TestCase):
         elements = ["A", "B", "C"]
         write_list_file(file_path, elements)
 
+        # FIXME: should not use read_file, violates test independence
         lines_written = read_file(file_path)
-        self.assertEqual(len(elements), len(lines_written))
+        self.assertEqual(len(lines_written), len(elements))
 
     def test_write_list_file_should_write_empty_file_given_empty_list(self):
         file_path = f"{test_output_dir}/write_list_file_empty.txt"
         elements = []
         write_list_file(file_path, elements)
 
+        # FIXME: should not use read_file, violates test independence
         lines_written = read_file(file_path)
-        self.assertEqual(0, len(lines_written))
+        self.assertEqual(len(lines_written), 0)
 
 
 if __name__ == '__main__':
