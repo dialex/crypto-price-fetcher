@@ -9,6 +9,11 @@ class TestHelpers(unittest.TestCase):
         output = read_file(config_path)
         self.assertGreater(len(output), 0)
 
+    def test_read_file_should_print_warning_and_return_empty_if_not_exists(self):
+        config_path = "some-file-that-doesnt-exist.txt"
+        output = read_file(config_path)
+        self.assertEqual(len(output), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
