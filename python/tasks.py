@@ -10,7 +10,7 @@ def clean(ctx):
 
 @task(clean)
 def app(ctx):
-    """Runs the script"""
+    """Fetches the prices of your favorite crypto currencies"""
     ctx.run("python app.py")
 
 
@@ -26,19 +26,7 @@ def install(ctx):
     ctx.run("pipenv install")
 
 
-# TODO: implement the tasks below
-
-# desc "Fetches the prices of your favorite crypto currencies"
-# task :fetch => [:fetch_prices] do end
-
-# desc "Cleans generated files"
-# task :clean => [:clean_install, :clean_run] do end
-
-# desc "Tells you how you can use this app"
-# task :help do
-#   sh('rake -T', verbose: false)
-# end
-
-# def execute(ctx):
-#     #run clean
-#     #run fetch
+@task()
+def help(ctx):
+    """Lists all available commands and usage"""
+    ctx.run("invoke --list")
