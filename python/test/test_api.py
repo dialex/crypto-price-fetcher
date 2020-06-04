@@ -27,6 +27,7 @@ class TestHelperAPI(unittest.TestCase):
         coin_ticker = "bitcoin"
         price = get_price(coin_ticker)
         self.assertGreater(price, 0)
+        self.assertIn("'float'", str(type(price)))
 
 
 if __name__ == '__main__':

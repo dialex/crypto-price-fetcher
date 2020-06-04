@@ -26,4 +26,4 @@ def get_price(coin_ticker):
 def extract_price(json):
     """Given a JSON response, extracts the price field"""
     value = json["data"]["1"]["quote"]["EUR"]["price"]
-    return int(value)
+    return float(value)
