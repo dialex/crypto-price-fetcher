@@ -7,6 +7,13 @@ def run(ctx):
     ctx.run("python main.py")
 
 
+@task()
+def test(ctx):
+    """Runs unit tests"""
+    ctx.run("python -m unittest discover")
+
+
+@task()
 def install(ctx):
     """Installs tools required to run and develop the app"""
     ctx.run("pipenv install")
@@ -20,13 +27,11 @@ def install(ctx):
 # desc "Cleans generated files"
 # task :clean => [:clean_install, :clean_run] do end
 
-# desc "Installs dependencies required to run the app"
-# task :install => [:install_user] do end
-
-# desc "Installs tools required to develop the app"
-# task :dev => [:install_dev] do end
-
 # desc "Tells you how you can use this app"
 # task :help do
 #   sh('rake -T', verbose: false)
 # end
+
+# def execute(ctx):
+#     #run clean
+#     #run fetch
