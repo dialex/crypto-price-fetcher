@@ -11,7 +11,7 @@ class TestHelperIO(unittest.TestCase):
         os.makedirs(test_output_dir)
 
     def test_read_file_should_return_lines(self):
-        file_path = "main.py"
+        file_path = "test/fixtures/config.txt"
         lines_read = read_file(file_path)
         self.assertGreater(len(lines_read), 0)
 
