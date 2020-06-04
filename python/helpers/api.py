@@ -18,6 +18,15 @@ def get_data(coin_ticker):
     """Returns metadata of a given coin"""
     endpoint = f"cryptocurrency/quotes/latest?slug={coin_ticker}&convert=EUR"
     response = requests.get(url + endpoint, headers=auth)
+    response_json = response.json()
+
+    if(response.status_code != 200):
+        error_msg = f'Unknown coin. (API returned {response.status_code}, {response_json["status"]["error_message"]})'
+        raise Exception(error_msg)
+    else:
+        return response_json
+
+
 def get_price(coin_ticker):
     """Returns the current price of a given coin"""
     return extract_price(get_data(coin_ticker))
