@@ -1,6 +1,8 @@
-def read_target_coins(config_path):
+def read_config_file(filepath):
     """Reads a config file and returns a list of coins"""
-    config_file = open(config_path, 'r')
-    lines = config_file.readlines()
+    print("Opening config file at " + filepath)
+    config_file = open(filepath, 'r')
+    lines = config_file.readlines()  # TODO: handle not found
+    print("Read " + str(len(lines)) + " lines of config")
     config_file.close()
     return lines
