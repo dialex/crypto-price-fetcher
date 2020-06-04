@@ -2,12 +2,19 @@ from invoke import task
 
 
 @task()
-def run(ctx):
+def clean(ctx):
+    """Deletes generated files"""
+    ctx.run("rm -rf test/output")
+    ctx.run("rm -f prices.txt")
+
+
+@task(clean)
+def app(ctx):
     """Runs the script"""
     ctx.run("python main.py")
 
 
-@task()
+@task(clean)
 def test(ctx):
     """Runs unit tests"""
     ctx.run("python -m unittest discover -b")
