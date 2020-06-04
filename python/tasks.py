@@ -11,7 +11,7 @@ def clean(ctx):
 @task(clean)
 def app(ctx):
     """Runs the script"""
-    ctx.run("python main.py")
+    ctx.run("python app.py")
 
 
 @task(clean)
