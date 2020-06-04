@@ -6,7 +6,7 @@ require_relative 'logging.rb'
 def get_data (coin_ticker)
   log "Fetching data for #{coin_ticker}"
 
-  headers = {"X-CMC_PRO_API_KEY": "SECRET_GOES_HERE"}
+  headers = {"X-CMC_PRO_API_KEY": "273104b2-dced-4bae-8c80-acb7c079f27b"}
   url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?slug=#{coin_ticker}&convert=EUR"
 
   response = HTTParty.get(url, :headers => headers, format: :plain)
