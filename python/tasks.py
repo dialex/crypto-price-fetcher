@@ -10,7 +10,7 @@ def run(ctx):
 @task()
 def test(ctx):
     """Runs unit tests"""
-    ctx.run("python -m unittest discover")
+    ctx.run("python -m unittest discover -b")
 
 
 @task()
