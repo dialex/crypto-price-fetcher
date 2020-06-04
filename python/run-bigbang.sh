@@ -13,3 +13,4 @@ pyenv global 3.8.2
 echo -e '\n>>> Installing Python tools...'
 brew install pipenv
 pipenv install
+pipenv run pip list

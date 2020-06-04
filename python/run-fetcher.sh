@@ -1,5 +1,4 @@
 #!/bin/bash
 
 cd $(dirname $0)
-invoke app
-# python app.py
+pipenv run invoke app
