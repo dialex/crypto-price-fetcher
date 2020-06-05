@@ -25,11 +25,11 @@ Today
 
 ## How?
 
-- 💎  **Ruby** version
+- 💎  **Ruby** version (2017)
   - cd `ruby`
   - Execute `run-bigbang.sh` to install everything required to run the app.
   - Execute `run-fetcher.sh` or `rake` to fetch the prices.
-- 🐍  **Python** version
+- 🐍  **Python** version (2020, now with unit tests!)
   - cd `python`
   - Execute `run-bigbang.sh` to install everything required to run the app.
   - Execute `run-fetcher.sh` or `invoke app` to fetch the prices.
