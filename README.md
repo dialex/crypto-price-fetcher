@@ -7,4 +7,4 @@
 - 🐍 Python version
   - cd `python`
   - Execute `run-bigbang.sh` to install everything required to run the app.
-  - Execute `run-fetcher.sh` or `invoke execute` to fetch the prices.
+  - Execute `run-fetcher.sh` or `invoke app` to fetch the prices.
