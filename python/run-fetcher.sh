@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd $(dirname $0)
-rake clean_run fetch
+pipenv run invoke app
 open prices.txt
