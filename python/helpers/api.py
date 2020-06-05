@@ -1,11 +1,10 @@
 import requests
 import json
 import helpers.log as log
+import helpers.env as env
 from jsonpath_ng import jsonpath, parse
 
-# TODO: should be secret env var
-auth = {"X-CMC_PRO_API_KEY": "273104b2-dced-4bae-8c80-acb7c079f27b"}
-
+auth = {"X-CMC_PRO_API_KEY": env.get_var("API_KEY")}
 url = "https://pro-api.coinmarketcap.com/v1/"
 
 
