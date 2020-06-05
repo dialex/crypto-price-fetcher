@@ -1,4 +1,4 @@
-# Crypto Currencies Price Fetcher
+# Cryptos Price Fetcher
 
 ## Why?
 
