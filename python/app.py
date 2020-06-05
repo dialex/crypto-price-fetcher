@@ -1,23 +1,30 @@
 import helpers.io as io
 import helpers.api as api
+import helpers.log as log
+import colorama
+
+# Enable colored output
+colorama.init(autoreset=True)
 
 # Read config
 config_path = "config.txt"
-print("Opening file at " + config_path)
+log.info(f"Opening file at {config_path}...")
 coin_tickers = io.read_file(config_path)
-print("Read " + str(len(coin_tickers)) + " lines")
+log.debug(f"Read {str(len(coin_tickers))} lines")
 
 # Fetch prices
 prices = []
 for coin in coin_tickers:
     coin = coin.rstrip()
-    print(f"Fetching data for {coin}")
+    log.info(f"Fetching data for {coin}...")
     coin_price = api.get_price(coin)
-    print(f" {coin_price} EUR")
+    log.info(f"  {coin_price} EUR")
     prices.append(coin_price)
 
 # Write results
 output_path = "prices.txt"
 io.write_list_file(output_path, prices)
+log.info(f"Prices exported to {output_path}")
 
-# TODO: refactor: print with colour (info, warning, err)
+# Disabled colored output
+colorama.deinit()

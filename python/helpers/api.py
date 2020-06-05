@@ -1,5 +1,6 @@
 import requests
 import json
+import helpers.log as log
 from jsonpath_ng import jsonpath, parse
 
 # TODO: should be secret env var
@@ -22,7 +23,8 @@ def get_data(coin_ticker):
     response_json = response.json()
 
     if(response.status_code != 200):
-        error_msg = f'Unknown coin. (API returned {response.status_code}, {response_json["status"]["error_message"]})'
+        log.err("Unknown coin")
+        error_msg = f'API returned {response.status_code}, {response_json["status"]["error_message"]}'
         raise Exception(error_msg)
     else:
         return response_json

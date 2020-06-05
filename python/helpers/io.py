@@ -1,9 +1,12 @@
+import helpers.log as log
+
+
 def read_file(filepath):
     """Reads a file and returns a list with each line"""
     try:
         config_file = open(filepath, 'r')
     except Exception as e:
-        print(e)
+        log.warn(e)
         lines = []
     else:
         lines = config_file.readlines()
