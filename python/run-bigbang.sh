@@ -10,7 +10,7 @@ brew install pyenv
 pyenv install 3.8.2
 pyenv global 3.8.2
 
-echo -e '\n>>> Installing Python tools...'
+echo -e '\n>>> Installing app dependencies...'
 brew install pipenv
 pipenv install
 pipenv run pip list
