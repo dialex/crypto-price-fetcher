@@ -1,5 +1,6 @@
 import requests
 import json
+from jsonpath_ng import jsonpath, parse
 
 # TODO: should be secret env var
 auth = {"X-CMC_PRO_API_KEY": "273104b2-dced-4bae-8c80-acb7c079f27b"}
@@ -34,5 +35,6 @@ def get_price(coin_ticker):
 
 def extract_price(json):
     """Given a JSON response, extracts the price field"""
-    value = json["data"]["1"]["quote"]["EUR"]["price"]
-    return float(value)
+    jsonpath = parse("$..EUR.price")
+    match = jsonpath.find(json)
+    return float(match[0].value)
