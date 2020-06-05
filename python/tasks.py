@@ -6,6 +6,8 @@ def clean(ctx):
     """Deletes generated files"""
     ctx.run("rm -rf test/output")
     ctx.run("rm -f prices.txt")
+    ctx.run(
+        "find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete")
 
 
 @task(clean)
