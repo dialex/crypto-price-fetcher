@@ -7,8 +7,8 @@ pip -V
 
 echo -e '\n>>> Installing Python version manager...'
 brew install pyenv
-pyenv install 3.8.2
-pyenv global 3.8.2
+pyenv install 3.9.0
+pyenv global 3.9.0
 
 echo -e '\n>>> Installing app dependencies...'
 brew install pipenv
