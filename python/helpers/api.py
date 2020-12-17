@@ -22,7 +22,11 @@ def get_data(coin_ticker):
     response_json = response.json()
 
     if(response.status_code != 200):
-        log.err("Unknown coin")
+        if(response.status_code == 401):
+            error_msg = "Missing auth header. Please set your secrets in a .env file."
+        else:
+            error_msg = "Unknown coin"
+        log.err(error_msg)
         error_msg = f'API returned {response.status_code}, {response_json["status"]["error_message"]}'
         raise Exception(error_msg)
     else:
