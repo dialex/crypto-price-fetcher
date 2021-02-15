@@ -1,16 +1,17 @@
 #!/bin/bash
-
-echo -e '\n>>> Installing Python...'
-brew install python3
-python -V
-pip -V
+version='3.9.1'
 
 echo -e '\n>>> Installing Python version manager...'
 brew install pyenv
-pyenv install 3.9.0
-pyenv global 3.9.0
+
+echo -e '\n>>> Installing Python...'
+pyenv install $version
+pyenv global $version
+python3 -V
+pip3 -V
 
 echo -e '\n>>> Installing app dependencies...'
-brew install pipenv
+pip3 install pipenv
+pipenv --python $version
 pipenv install
 pipenv run pip list
