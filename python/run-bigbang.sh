@@ -6,7 +6,7 @@ brew install pyenv
 
 echo -e '\n>>> Installing Python...'
 pyenv install $version
-pyenv global $version
+pyenv local $version
 python3 -V
 pip3 -V
 
