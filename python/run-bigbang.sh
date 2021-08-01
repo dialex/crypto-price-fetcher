@@ -1,5 +1,5 @@
 #!/bin/bash
-version='3.9.1'
+version='3.9.6'
 
 echo -e '\n>>> Installing Python version manager...'
 brew install pyenv
