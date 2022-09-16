@@ -1,5 +1,5 @@
 #!/bin/bash
-version='3.9.6'
+version='3.10.2'
 
 echo -e '\n>>> Installing Python version manager...'
 brew install pyenv
@@ -12,7 +12,8 @@ python3 -V
 pip3 -V
 
 echo -e '\n>>> Installing app dependencies...'
-sudo -H pip3 install -U pipenv
+python3 -m pip install --upgrade pip
+python3 -m pip install pipenv
 pipenv --python $version
 pipenv install
 pipenv run pip list
