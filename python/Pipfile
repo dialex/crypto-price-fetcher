@@ -13,4 +13,4 @@ colorama = "*"
 python-dotenv = "*"
 
 [requires]
-python_version = "3.10.2"
+python_version = "3.13.5"
